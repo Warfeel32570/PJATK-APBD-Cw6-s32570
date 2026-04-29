@@ -1,6 +1,5 @@
 ﻿namespace APBD_Cw6_s32570.DTOs;
 
-//GET /api/appointments/{idAppointment}
 public class AppointmentDetailsDto
 {
     public int IdAppointment { get; set; }

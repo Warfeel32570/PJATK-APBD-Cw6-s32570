@@ -1,21 +1,20 @@
+using APBD_Cw6_s32570.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
-//builder.Services.AddScoped<ICustomerService, CustomerService>();
 
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.UseSwaggerUI(opt => opt.SwaggerEndpoint("/openapi/v1.json", "V1"));
-}
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 
